@@ -41,6 +41,10 @@ namespace WebApp.Areas.Admin.Controllers
                         titleImageFile.CopyTo(stream);
                     }
                 }
+                else if(!(model.TitleImagePath != null))
+                {
+                    model.TitleImagePath = "zero.png";
+                }
                 dataManager.ServiceItems.SaveServiceItem(model);
                 return RedirectToAction(nameof(HomeController.Index), nameof(HomeController).CutController());
             }

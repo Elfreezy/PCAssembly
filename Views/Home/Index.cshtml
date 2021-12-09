@@ -1,3 +1,11 @@
-﻿<div>Главная страница</div>
+﻿@model TextField
 
-<a href="https://localhost:44323/admin">admin panel</a>
+@{ 
+    ViewBag.Title = Model.Title;
+    ViewBag.Text = Model.Text;
+    ViewBag.Text = Model.Text;
+}
+
+<div >
+    @Html.Raw(Model.Text) <!-- Корявый метод. Опасный -->
+</div>

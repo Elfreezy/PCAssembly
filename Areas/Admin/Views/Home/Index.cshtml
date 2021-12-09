@@ -16,18 +16,20 @@
         @if (@Model.Any())
         {
             <div>
-                @foreach (ServiceItem item in Model)
-                {
-                    <div>
-                        <a asp-area="Admin" asp-controller="ServiceItems" asp-action="Edit" asp-route-id="@item.Id">Редактировать</a>
-                        <form style="display: inline-block;" id="form-@item.Id" asp-area="Admin" asp-controller="ServiceItems" asp-action="Delete" asp-route-id="@item.Id" method="post">
-                            <input type="hidden" name="id" value="@item.Id" />
-                            <a href="#" onclick="document.getElementById('form-@item.Id').submit()">Удалить</a>
-                        </form>
+                <ul>
+                    @foreach (ServiceItem item in Model)
+                    {
+                        <li>
+                            <a asp-area="Admin" asp-controller="ServiceItems" asp-action="Edit" asp-route-id="@item.Id">Редактировать</a>
+                            <form style="display: inline-block;" id="form-@item.Id" asp-area="Admin" asp-controller="ServiceItems" asp-action="Delete" asp-route-id="@item.Id" method="post">
+                                <input type="hidden" name="id" value="@item.Id" />
+                                <a href="#" onclick="document.getElementById('form-@item.Id').submit()">Удалить</a>
+                            </form>
 
-                        <a asp-area="" asp-controller="Service" asp-action="Index" asp-route-id="@item.Id">@($"{item.Title}")</a>
-                    </div>
-                }
+                            <a asp-area="" asp-controller="Services" asp-action="Index" asp-route-id="@item.Id">@($"{item.Title}")</a>
+                        </li>
+                    }
+                </ul>
             </div>
         }
     </div>
