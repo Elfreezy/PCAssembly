@@ -1,0 +1,55 @@
+﻿@model PowerUnit
+
+@{
+    ViewBag.Title = Model.Title;
+    ViewBag.Text = Model.Text;
+}
+
+<div class="div-box">
+    <h2>
+        @Model.Title
+    </h2>
+    <div> <img src="~/img/@Model.TitleImagePath" class="img-box" /> </div>
+</div>
+
+<div class="div-box">
+    <bold>
+        <label asp-for="Text"></label><br />
+    </bold>
+    @Html.Raw(Model.Text)
+</div>
+
+<div class="div-box">
+    <bold>
+        <label asp-for="FormFactor"></label><br />
+    </bold>
+    <p>@Model.FormFactor</p>
+</div>
+
+<div class="div-box">
+    <bold>
+        <label asp-for="ModelName"></label><br />
+    </bold>
+    <p>@Model.ModelName</p>
+</div>
+
+<div class="div-box">
+    <bold>
+        <label asp-for="DateCreated"></label><br />
+    </bold>
+    <p>@Model.DateCreated</p>
+</div>
+
+<div class="div-box">
+    <bold>
+        <label asp-for="Maker"></label><br />
+    </bold>
+    <p>@Model.Maker</p>
+</div>
+
+<div class="div-box">
+    <bold>
+        <label asp-for="Price"></label><br />
+    </bold>
+    <p>@Model.Price</p>
+</div>

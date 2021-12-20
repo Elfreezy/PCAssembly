@@ -1,0 +1,31 @@
+﻿@model IQueryable<PowerUnit>
+
+@{ 
+    TextField textFiel = ViewBag.TextField;
+
+    ViewBag.Title = textFiel.Title;
+    ViewBag.Text = textFiel.Text;
+}
+
+<div class="div-box">
+    @if (Model.Any())
+    { 
+        <ul class="big-image-list">
+            @foreach (PowerUnit item in Model)
+            { 
+            <li>
+                <a asp-area="" asp-controller="PowerUnits" asp-action="Index" asp-route-id="@item.Id">
+                    <img src="~/img/@item.TitleImagePath" class="left" />
+                </a>
+                <h4>@item.Title</h4>
+                <p>@item.Subtitle</p>
+
+                <form style="display: inline-block;" id="form-@item.Id" asp-area="" asp-controller="Components" asp-action="EndComplictation" asp-route-id="@item.Id" method="post">
+                    <input type="hidden" name="PowerUnitId" value="@item.Id" />
+                    <a href="#" onclick="document.getElementById('form-@item.Id').submit()">Добавить</a>
+                </form>
+            </li>
+            }
+        </ul>
+    }
+</div>

@@ -1,0 +1,36 @@
+﻿@model IQueryable<SoundCard>
+
+
+@{
+    string strTitle = "Редактировать";
+    ViewBag.Title = strTitle;
+}
+
+<div>
+    <h2>@strTitle</h2>
+    <div>
+        <h3>Наши Продукты</h3>
+        <div class="div-box">
+            <a asp-area="Admin" asp-controller="SoundCards" asp-action="Edit" asp-route-id=""> Добавить </a>
+        </div>
+        @if (@Model.Any())
+        {
+            <div>
+                <ul>
+                    @foreach (SoundCard item in Model)
+                    {
+                        <li>
+                            <a asp-area="Admin" asp-controller="SoundCards" asp-action="Edit" asp-route-id="@item.Id">Редактировать</a>
+                            <form style="display: inline-block;" id="form-@item.Id" asp-area="Admin" asp-controller="SoundCards" asp-action="Delete" asp-route-id="@item.Id" method="post">
+                                <input type="hidden" name="id" value="@item.Id" />
+                                <a href="#" onclick="document.getElementById('form-@item.Id').submit()">Удалить</a>
+                            </form>
+
+                            <a asp-area="" asp-controller="SoundCards" asp-action="Index" asp-route-id="@item.Id">@($"{item.Title}")</a>
+                        </li>
+                    }
+                </ul>
+            </div>
+        }
+    </div>
+</div>

@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using WebApp.Domain;
 
 namespace WebApp.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20211219092607_redact motherboard and processor model")]
+    partial class redactmotherboardandprocessormodel
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -49,7 +51,7 @@ namespace WebApp.Migrations
                         new
                         {
                             Id = "ca761232-ed42-11ce-bacd-00aa0057b223",
-                            ConcurrencyStamp = "1d4b68ce-b7f2-49ff-a365-4ee405e887f1",
+                            ConcurrencyStamp = "318f071f-ce3c-4c83-9542-98490ba4ecde",
                             Name = "admin",
                             NormalizedName = "ADMIN"
                         });
@@ -148,13 +150,13 @@ namespace WebApp.Migrations
                         {
                             Id = "ca761232-ed42-11ce-bacd-00aa0057b223",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "da3a38ef-01eb-46d5-af69-3a17a11a60e9",
+                            ConcurrencyStamp = "60fd77e1-b917-4016-8c3f-f41370e5fc49",
                             Email = "bloody@yandex.ru",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "BLOODY@YANDEX.RU",
                             NormalizedUserName = "ADMIN",
-                            PasswordHash = "AQAAAAEAACcQAAAAEJ8cy7GBP6w6ugKPX2tOdrcw7DjzINSdLdwLte+l1BV8I7cEwSXiaukZgPRr+B3BPA==",
+                            PasswordHash = "AQAAAAEAACcQAAAAELXrJfz3OsmhqKF+/scH6XJfz+maRtovwM36vLDwVmxmewVk5+WBP2VriM/VUb/s+w==",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "",
                             TwoFactorEnabled = false,
@@ -249,50 +251,6 @@ namespace WebApp.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
-            modelBuilder.Entity("WebApp.Domain.Entities.Component", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateTime>("DateAdd")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Motherboard")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("PowerUnit")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Processor")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("SoundCard")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("StorageDevice")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Subtitle")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Text")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Title")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("TitleImagePath")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Videoadapter")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Components");
-                });
-
             modelBuilder.Entity("WebApp.Domain.Entities.Motherboard", b =>
                 {
                     b.Property<Guid>("Id")
@@ -304,15 +262,6 @@ namespace WebApp.Migrations
 
                     b.Property<string>("DateCreated")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("FormFactorPowerUnit")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("FormFactorSoundCard")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("FormFactorStorageDevice")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Maker")
@@ -343,58 +292,9 @@ namespace WebApp.Migrations
                     b.Property<string>("TitleImagePath")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("VideoadapterInterface")
-                        .HasColumnType("nvarchar(max)");
-
                     b.HasKey("Id");
 
                     b.ToTable("Motherboards");
-                });
-
-            modelBuilder.Entity("WebApp.Domain.Entities.PowerUnit", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateTime>("DateAdd")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("DateCreated")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("FormFactor")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Maker")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("ModelName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Price")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Subtitle")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Text")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Title")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("TitleImagePath")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("PowerUnits");
                 });
 
             modelBuilder.Entity("WebApp.Domain.Entities.Processor", b =>
@@ -470,98 +370,6 @@ namespace WebApp.Migrations
                     b.ToTable("ServiceItems");
                 });
 
-            modelBuilder.Entity("WebApp.Domain.Entities.SoundCard", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateTime>("DateAdd")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("DateCreated")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("FormFactor")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Maker")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("ModelName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Price")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Subtitle")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Text")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Title")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("TitleImagePath")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("SoundCards");
-                });
-
-            modelBuilder.Entity("WebApp.Domain.Entities.StorageDevice", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateTime>("DateAdd")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("DateCreated")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("FormFactor")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Maker")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("ModelName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Price")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Subtitle")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Text")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Title")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("TitleImagePath")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("StorageDevices");
-                });
-
             modelBuilder.Entity("WebApp.Domain.Entities.TextField", b =>
                 {
                     b.Property<Guid>("Id")
@@ -596,7 +404,7 @@ namespace WebApp.Migrations
                         {
                             Id = new Guid("3c345af4-2678-4a3a-a170-4433e0caa87c"),
                             CodeWord = "PageIndex",
-                            DateAdd = new DateTime(2021, 12, 20, 22, 50, 52, 321, DateTimeKind.Utc).AddTicks(5339),
+                            DateAdd = new DateTime(2021, 12, 19, 9, 26, 7, 208, DateTimeKind.Utc).AddTicks(3874),
                             Text = "Содержание заполняется администратором",
                             Title = "Главная"
                         },
@@ -604,7 +412,7 @@ namespace WebApp.Migrations
                         {
                             Id = new Guid("5a315af2-d467-4b53-ad25-043efe4cbdd7"),
                             CodeWord = "PageServices",
-                            DateAdd = new DateTime(2021, 12, 20, 22, 50, 52, 321, DateTimeKind.Utc).AddTicks(7948),
+                            DateAdd = new DateTime(2021, 12, 19, 9, 26, 7, 208, DateTimeKind.Utc).AddTicks(6145),
                             Text = "Содержание заполняется администратором",
                             Title = "Услуги"
                         },
@@ -612,56 +420,10 @@ namespace WebApp.Migrations
                         {
                             Id = new Guid("419b11ca-1cfe-4789-b86a-be0c4f19f98c"),
                             CodeWord = "PageContacts",
-                            DateAdd = new DateTime(2021, 12, 20, 22, 50, 52, 321, DateTimeKind.Utc).AddTicks(8020),
+                            DateAdd = new DateTime(2021, 12, 19, 9, 26, 7, 208, DateTimeKind.Utc).AddTicks(6203),
                             Text = "Содержание заполняется администратором",
                             Title = "Контакты"
                         });
-                });
-
-            modelBuilder.Entity("WebApp.Domain.Entities.Videoadapter", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateTime>("DateAdd")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("DateCreated")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Interface")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Maker")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("ModelName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Price")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Subtitle")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Text")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Title")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("TitleImagePath")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Videoadapters");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

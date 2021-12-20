@@ -1,0 +1,36 @@
+﻿@model IQueryable<Component>
+
+
+@{
+    string strTitle = "Сборки";
+    ViewBag.Title = strTitle;
+}
+
+<div>
+    <h2>@strTitle</h2>
+    <div>
+        <h3>Список сборок</h3>
+        <div class="div-box">
+            <a asp-area="" asp-controller="Components" asp-action="ChooseProcessor" asp-route-id=""> Создать сборку </a>
+        </div>
+        @if (@Model.Any())
+        {
+            <div>
+                <ul>
+                    @foreach (Component item in Model)
+                    {
+                        <li>
+                            <a asp-area="" asp-controller="Components" asp-action="Index" asp-route-id="@item.Id">Просмотреть</a>
+                            <form style="display: inline-block;" id="form-@item.Id" asp-area="" asp-controller="Components" asp-action="Delete" asp-route-id="@item.Id" method="post">
+                                <input type="hidden" name="id" value="@item.Id" />
+                                <a href="#" onclick="document.getElementById('form-@item.Id').submit()">Удалить</a>
+                            </form>
+
+                            <a asp-area="" asp-controller="Components" asp-action="Index" asp-route-id="@item.Id">@($"{item.Title}")</a>
+                        </li>
+                    }
+                </ul>
+            </div>
+        }
+    </div>
+</div>

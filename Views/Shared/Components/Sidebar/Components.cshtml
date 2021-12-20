@@ -1,0 +1,12 @@
+﻿@model Component
+
+@if (@Model.Id.ToString() != "")
+{
+    <section>
+        <h2>Текущая сборка</h2>
+        <ul class="small-image-list">
+            <li>@Html.Raw(Model.Processor)</li>
+            <li>@Html.Raw(Model.Motherboard)</li>
+        </ul>
+    </section>
+}

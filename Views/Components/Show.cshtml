@@ -1,0 +1,38 @@
+﻿@model Component
+
+@{
+    string strTitle = "Информация о сборке";
+    ViewBag.Title = strTitle;
+}
+
+<div>
+    <h2>@strTitle</h2>
+    <div class="div-box">
+        <form asp-area="" asp-controller="Components" asp-action="Index" method="post" enctype="multipart/form-data">
+            <input type="hidden" asp-for="Id" />
+            <input type="hidden" asp-for="DateAdd" />
+            <input type="hidden" asp-for="TitleImagePath" />
+
+            <div asp-validation-summary="All"></div>
+            <div class="div-box">
+                <a asp-area="" asp-controller="Processors" asp-action="Index" asp-route-id="@Model.Processor">Посмотреть процессор</a>
+            </div>
+            <div class="div-box">
+                <a asp-area="" asp-controller="Motherboards" asp-action="Index" asp-route-id="@Model.Motherboard">Посмотреть материнскую плату</a>
+            </div>
+            <div class="div-box">
+                <a asp-area="" asp-controller="Videoadapters" asp-action="Index" asp-route-id="@Model.Videoadapter">Посмотреть видеокарту</a>
+            </div>
+            <div class="div-box">
+                <a asp-area="" asp-controller="SoundCards" asp-action="Index" asp-route-id="@Model.SoundCard">Посмотреть звуковую карту</a>
+            </div>
+            <div class="div-box">
+                <a asp-area="" asp-controller="StorageDevices" asp-action="Index" asp-route-id="@Model.StorageDevice">Посмотреть накопитель</a>
+            </div>
+            <div class="div-box">
+                <a asp-area="" asp-controller="PowerUnits" asp-action="Index" asp-route-id="@Model.PowerUnit">Посмотреть блок питания</a>
+            </div>
+            <input type="submit" value="Назад" />
+        </form>
+    </div>
+</div>

@@ -36,6 +36,13 @@ namespace WebApp
             // Подключение нужного функционала приложения в качестве сервисов
             services.AddTransient<IServiceItemsRepository, EFServeceItemsRepository>();     // Связь интерфейс-реализация
             services.AddTransient<ITextFieldsRepository, EFTextFieldsRepository>();
+            services.AddTransient<IComponentsRepository, EFComponentsRepository>();
+            services.AddTransient<IProcessorsRepository, EFProcessorsRepository>();
+            services.AddTransient<IMotherboardsRepository, EFMotherboardsRepository>();
+            services.AddTransient<IVideoadaptersRepository, EFVideoadaptersRepository>();
+            services.AddTransient<IStorageDevicesRepository, EFStorageDevicesRepository>();
+            services.AddTransient<ISoundCardsRepository, EFSoundCardsRepository>();
+            services.AddTransient<IPowerUnitsRepository, EFPowerUnitsRepository>();
             services.AddTransient<DataManager>();
 
             // Подключение к БД

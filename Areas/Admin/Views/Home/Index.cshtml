@@ -44,7 +44,23 @@
     </div>
 
     <div class="div-box">
-        <form asp-area="" asp-controller="Account" asp-action="Logout"  method="post">
+        <h3>Редактировать элементы</h3>
+        <div class="div-box">
+            <ul>
+                <li><a asp-area="Admin" asp-controller="Processors" asp-action="Index" asp-route-id=""> Процессоры </a></li>
+                <li><a asp-area="Admin" asp-controller="Motherboards" asp-action="Index" asp-route-id=""> Материнские платы </a></li>
+                <li><a asp-area="Admin" asp-controller="Videoadapters" asp-action="Index" asp-route-id=""> Видеокарты </a></li>
+                <li><a asp-area="Admin" asp-controller="SoundCards" asp-action="Index" asp-route-id=""> Звуковые карты </a></li>
+                <li><a asp-area="Admin" asp-controller="StorageDevices" asp-action="Index" asp-route-id=""> Накопители </a></li>
+                <li><a asp-area="Admin" asp-controller="PowerUnits" asp-action="Index" asp-route-id=""> Блоки питания </a></li>
+            </ul>
+            
+            
+        </div>
+    </div>
+
+    <div class="div-box">
+        <form asp-area="" asp-controller="Account" asp-action="Logout" method="post">
             <input type="submit" value="Выйти" />
         </form>
     </div>

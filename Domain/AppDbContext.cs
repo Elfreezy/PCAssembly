@@ -16,7 +16,27 @@ namespace WebApp.Domain
         public DbSet<TextField> TextFields { set; get; }
 
         public DbSet<ServiceItem> ServiceItems { set; get; }
+        public DbSet<Processor> Processors { set; get; }
+        public DbSet<Motherboard> Motherboards { set; get; }
+        public DbSet<Component> Components { set; get; }
+        public DbSet<Videoadapter> Videoadapters { set; get; }
+        public DbSet<StorageDevice> StorageDevices { set; get; }
+        public DbSet<SoundCard> SoundCards { set; get; }
+        public DbSet<PowerUnit> PowerUnits { set; get; }
+
         public IQueryable<ServiceItem> ServiceItem { get; internal set; }
+
+        public IQueryable<Processor> Processor { get; internal set; }
+
+        public IQueryable<Motherboard> Motherboard { get; internal set; }
+
+        public IQueryable<Component> Component { get; internal set; }
+        public IQueryable<Videoadapter> Videoadapter { get; internal set; }
+        public IQueryable<StorageDevice> StorageDevice { get; internal set; }
+        public IQueryable<SoundCard> SoundCard { get; internal set; }
+        public IQueryable<PowerUnit> PowerUnit { get; internal set; }
+
+        public object Response { get; internal set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
